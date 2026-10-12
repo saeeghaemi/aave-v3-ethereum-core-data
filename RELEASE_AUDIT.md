@@ -30,6 +30,7 @@ Excluded material is absent: wallet balance intervals or histories, shock labels
 - Duplicate counts are zero.
 - CSV/Parquet equivalence checks pass for both dual-format tables.
 - No data file exceeds GitHub's 100,000,000-byte file limit.
+- Binary data files are stored through Git LFS without changing their contents; the manifest hashes the restored file bytes.
 - `checksums.sha256` is recalculated from the exact publication tree.
 - The source release remains separate and unchanged.
 

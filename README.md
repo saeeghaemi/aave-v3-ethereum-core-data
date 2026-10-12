@@ -18,6 +18,8 @@ Research-grade hourly reserve states, supplier-address concentration measures, a
 
 Parquet is the canonical format. The two compact hourly tables also have compressed CSV copies.
 
+The binary data files are stored with [Git LFS](https://git-lfs.com/). Install Git LFS before cloning, or download individual files from GitHub. A normal Git LFS checkout restores the exact bytes recorded in `checksums.sha256`.
+
 ## Directory layout
 
 ```text
