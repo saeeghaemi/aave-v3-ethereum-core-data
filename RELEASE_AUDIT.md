@@ -1,5 +1,7 @@
 # Release audit
 
+> This audit describes the immutable tagged v1.0.0 release. Validated Excel convenience copies added later on the `main` branch do not alter that tag or its canonical datasets.
+
 **Release:** v1.0.0  
 **Audit date:** 2026-10-13  
 **Author:** Mohammad Saee Ghaemi

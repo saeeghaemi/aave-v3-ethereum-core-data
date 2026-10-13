@@ -12,11 +12,21 @@ Research-grade hourly reserve states, supplier-address concentration measures, a
 
 | Dataset | Rows | Format | Description |
 |---|---:|---|---|
-| Hourly reserve state | 131,944 | Parquet, CSV.gz | Exact end-of-hour reserve, token, Oracle, rate, index, and configuration observations. |
-| Supplier-address concentration | 131,944 | Parquet, CSV.gz | Top-1/top-5/top-10 address shares, address HHI, and reconstruction reconciliation controls. |
-| Withdrawal liquidity observations | 988,043 | Parquet by asset | Every in-scope Pool `Withdraw` event joined to prior-hour and 1/3/6/12/24/48-hour-end liquidity states. |
+| Hourly reserve state | 131,944 | Parquet, CSV.gz, Excel | Exact end-of-hour reserve, token, Oracle, rate, index, and configuration observations. |
+| Supplier-address concentration | 131,944 | Parquet, CSV.gz, Excel | Top-1/top-5/top-10 address shares, address HHI, and reconstruction reconciliation controls. |
+| Withdrawal liquidity observations | 988,043 | Parquet by asset, Excel | Every in-scope Pool `Withdraw` event joined to prior-hour and 1/3/6/12/24/48-hour-end liquidity states. |
 
 Parquet is the canonical format. The two compact hourly tables also have compressed CSV copies.
+
+## Download Excel Datasets
+
+- [Hourly reserve state (.xlsx)](https://media.githubusercontent.com/media/saeeghaemi/aave-v3-ethereum-core-data/main/excel/aave_hourly_reserve_state.xlsx)
+- [Supplier-address concentration (.xlsx)](https://media.githubusercontent.com/media/saeeghaemi/aave-v3-ethereum-core-data/main/excel/aave_supplier_concentration.xlsx)
+- [Withdrawal liquidity observations (.xlsx)](https://media.githubusercontent.com/media/saeeghaemi/aave-v3-ethereum-core-data/main/excel/aave_withdrawal_liquidity.xlsx)
+
+These Excel workbooks are convenient copies of the validated public datasets. Parquet remains the canonical and preferred format for precise computational research.
+
+Excel worksheets are limited to 1,048,576 rows. The withdrawal workbook contains 988,043 data rows plus one header row and therefore fits in a single worksheet. High-precision numeric fields are stored as text to prevent Excel's 15-significant-digit precision limit from changing the published values. Addresses, transaction hashes, raw token amounts, and ray values are also stored as text. UTC timestamps are stored as Excel date-time cells. Analysts should import text-preserved numeric fields explicitly when calculations are required.
 
 The binary data files are stored with [Git LFS](https://git-lfs.com/). Install Git LFS before cloning, or download individual files from GitHub. A normal Git LFS checkout restores the exact bytes recorded in `checksums.sha256`.
 
@@ -35,6 +45,10 @@ data/
     ├── liquidity_observations_usdc.parquet
     ├── liquidity_observations_usdt.parquet
     └── liquidity_observations_weth.parquet
+excel/
+├── aave_hourly_reserve_state.xlsx
+├── aave_supplier_concentration.xlsx
+└── aave_withdrawal_liquidity.xlsx
 ```
 
 ## Time, units, and missing values

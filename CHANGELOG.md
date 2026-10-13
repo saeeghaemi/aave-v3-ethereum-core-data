@@ -1,5 +1,11 @@
 # Changelog
 
+## Main branch — 2026-10-13
+
+- Added validated Excel convenience copies for the three published dataset groups under `excel/`.
+- Added direct workbook download links and documented Excel row and numeric-precision limits.
+- Preserved the tagged v1.0.0 release and all canonical dataset files unchanged.
+
 ## v1.0.0 — 2026-10-13
 
 Initial public release.
